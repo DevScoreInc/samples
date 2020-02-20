@@ -1,0 +1,15 @@
+{
+  "function": {
+    "name": "google_calendar",
+    "author": "khash",
+    "runtime": "nodejs",
+    "required_parameters": [
+        {
+            "id": "#YOUR_CALENDAR_ID#",
+            "name": "calendar id",
+            "type": "string"
+        }
+    ],
+    "optional_parameters": []
+  }
+}
