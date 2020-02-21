@@ -135,7 +135,7 @@ async function main() {
         }
     }
 
-    const GENERAL_CHANNEL_WEBHOOK_ENDPOINT = "https://hooks.slack.com/services/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";
+    const GENERAL_CHANNEL_WEBHOOK_ENDPOINT = "#YOUR_SLACK_CHANNEL_WEBHOOK_URL#";
     const calendarId = "#YOUR_CALENDAR_ID#"; //It might be your email address
     const TIMEZONE_UTC_OFFSET = -480; //America/Los_Angeles
     const timeMin = _context.momentLib().utcOffset(TIMEZONE_UTC_OFFSET).startOf('day').format(); // "2020-02-18T00:00:00-08:00";

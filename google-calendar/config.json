@@ -10,6 +10,11 @@
             "name": "calendarId",
             "default_value": "primary",
             "instruction_link": "https://developers.google.com/calendar/v3/reference/events/list"
+        }, {
+            "id": "#YOUR_SLACK_CHANNEL_WEBHOOK_URL#",
+            "name": "slack_webhook_url",
+            "default_value": "",
+            "instruction_link": "https://api.slack.com/messaging/webhooks"
         }
 
     ],
