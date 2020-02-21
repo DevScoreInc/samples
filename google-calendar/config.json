@@ -10,12 +10,21 @@
             "name": "calendarId",
             "default_value": "primary",
             "instruction_link": "https://developers.google.com/calendar/v3/reference/events/list"
+        }, {
+            "id": "#YOUR_CALENDAR_ID#",
+            "name": "mapsId",
+            "default_value": "primary",
+            "instruction_link": "https://developers.google.com/calendar/v3/reference/events/list"
         }
     ],
     "required_connections": [
         {
             "id": "google-oauth",
             "permissions": ["https://www.googleapis.com/auth/calendar.readonly"],
+            "instruction_link": "https://developers.google.com/calendar/auth"
+        }, {
+            "id": "google-oauth",
+            "permissions": ["https://www.googleapis.com/auth/calendar"],
             "instruction_link": "https://developers.google.com/calendar/auth"
         }
     ],
