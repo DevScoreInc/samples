@@ -10,16 +10,6 @@
             "name": "calendarId",
             "default_value": "primary",
             "instruction_link": "https://developers.google.com/calendar/v3/reference/events/list"
-        }, {
-            "id": "#YOUR_Map_ID#",
-            "name": "mapsId",
-            "default_value": "primary",
-            "instruction_link": "https://developers.google.com/calendar/v3/reference/events/list"
-        }, {
-            "id": "#YOUR_TWILIO_ID#",
-            "name": "twilioId",
-            "default_value": "primary",
-            "instruction_link": "https://developers.google.com/calendar/v3/reference/events/list"
         }
 
     ],
@@ -27,10 +17,6 @@
         {
             "id": "google-oauth",
             "permissions": ["https://www.googleapis.com/auth/calendar.readonly"],
-            "instruction_link": "https://developers.google.com/calendar/auth"
-        }, {
-            "id": "google-oauth",
-            "permissions": ["https://www.googleapis.com/auth/calendar"],
             "instruction_link": "https://developers.google.com/calendar/auth"
         }
     ],
