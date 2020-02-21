@@ -11,11 +11,17 @@
             "default_value": "primary",
             "instruction_link": "https://developers.google.com/calendar/v3/reference/events/list"
         }, {
-            "id": "#YOUR_CALENDAR_ID#",
+            "id": "#YOUR_Map_ID#",
             "name": "mapsId",
             "default_value": "primary",
             "instruction_link": "https://developers.google.com/calendar/v3/reference/events/list"
+        }, {
+            "id": "#YOUR_TWILIO_ID#",
+            "name": "twilioId",
+            "default_value": "primary",
+            "instruction_link": "https://developers.google.com/calendar/v3/reference/events/list"
         }
+
     ],
     "required_connections": [
         {
