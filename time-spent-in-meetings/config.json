@@ -1,0 +1,31 @@
+{
+    "function": {
+      "name": "time_spent_in_meetings",
+      "author": "khash Nejad",
+      "version": "1.0.0",
+      "runtime": "nodejs",
+      "required_parameters": [
+          {
+              "id": "#YOUR_CALENDAR_ID#",
+              "name": "calendarId",
+              "default_value": "primary",
+              "instruction_link": "https://developers.google.com/calendar/v3/reference/events/list"
+          }, {
+              "id": "#YOUR_SLACK_CHANNEL_WEBHOOK_URL#",
+              "name": "slack_webhook_url",
+              "default_value": "",
+              "instruction_link": "https://api.slack.com/messaging/webhooks"
+          }
+  
+      ],
+      "required_connections": [
+          {
+              "id": "google-oauth",
+              "permissions": ["https://www.googleapis.com/auth/calendar.readonly"],
+              "instruction_link": "https://developers.google.com/calendar/auth"
+          }
+      ],
+      "optional_parameters": []
+    }
+  }
+  

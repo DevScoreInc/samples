@@ -145,7 +145,7 @@ async function main() {
     let eventResponse = await get_calendar_events(access_token, calendarId, timeMin, timeMax);
     // await _context.logger('info', {'eventResponse': eventResponse});
     let parsed_events = parse_calendar_events(JSON.parse(eventResponse));
-    await _context.logger('info', {'events': parsed_events});
+    // await _context.logger('info', {'events': parsed_events});
     let ret = await post_slack_using_webhook(GENERAL_CHANNEL_WEBHOOK_ENDPOINT, parsed_events.text, parsed_events.blocks);
     
     return {'message': parsed_events};
