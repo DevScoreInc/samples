@@ -1,0 +1,20 @@
+{
+    "function": {
+      "name": "daily_git_activity",
+      "author": "khash Nejad",
+      "version": "1.0.0",
+      "runtime": "nodejs",
+      "required_parameters": [
+          {
+              "id": "#YOUR_SLACK_CHANNEL_WEBHOOK_URL#",
+              "name": "slack_webhook_url",
+              "default_value": "",
+              "instruction_link": "https://api.slack.com/messaging/webhooks"
+          }
+  
+      ],
+      "required_connections": [],
+      "optional_parameters": []
+    }
+}
+
