@@ -1,0 +1,19 @@
+{
+    "function": {
+      "name": "CircleCI integration",
+      "author": "khash Nejad",
+      "version": "1.0.0",
+      "runtime": "nodejs",
+      "required_parameters": [
+      ],
+      "required_connections": [
+          {
+              "id": "token-circleci",
+              "permissions": ["Personal API Token"],
+              "instruction_link": "https://circleci.com/docs/2.0/managing-api-tokens/"
+          }
+      ],
+      "optional_parameters": []
+    }
+  }
+  
