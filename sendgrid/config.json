@@ -1,0 +1,37 @@
+{
+    "function": {
+      "name": "SendGrid integration",
+      "author": "khash Nejad",
+      "version": "1.0.0",
+      "runtime": "nodejs",
+      "required_parameters": [
+        {
+            "id": "#TO_EMAIL_ADDRESS#",
+            "name": "To email address",
+            "default_value": "",
+            "instruction_link": ""
+        },
+        {
+            "id": "#FROM_EMAIL_ADDRESS#",
+            "name": "From email address",
+            "default_value": "",
+            "instruction_link": ""
+        },
+        {
+            "id": "#EMAIL_SUBJECT#",
+            "name": "Email subject",
+            "default_value": "",
+            "instruction_link": ""
+        }
+      ],
+      "required_connections": [
+          {
+              "id": "token-sendgrid",
+              "permissions": ["SendGrid API key"],
+              "instruction_link": "https://sendgrid.com/docs/ui/account-and-settings/api-keys/"
+          }
+      ],
+      "optional_parameters": []
+    }
+  }
+  
