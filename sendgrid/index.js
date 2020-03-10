@@ -10,7 +10,7 @@ async function main() {
         return map.token;
     }
     
-    const sentHelloWorldEmail = async (to, from, subject, html_content, text_content) => {
+    const sendMail = async (to, from, subject, html_content, text_content) => {
         const token = await getSendGridToken();
         const messageData = {
             'api_key': token, 
@@ -33,7 +33,7 @@ async function main() {
     const email_subject = "#EMAIL_SUBJECT#";
     const email_html_body = "<h1>Hello World</h1>";
     const email_text_body = "hello world";
-    const result = await sentHelloWorldEmail(to_email_address, from_email_address, email_subject, email_html_body, email_text_body);
+    const result = await sendMail(to_email_address, from_email_address, email_subject, email_html_body, email_text_body);
     return {'message': result};
 }
 main();
