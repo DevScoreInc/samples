@@ -3,7 +3,7 @@ version: 2.1
 # Use a package of configuration called an orb.
 orbs:
   # Declare a dependency on the beta/webhook
-  webhook: beta/webhook@1.0.1
+  beta: beta/webhook@1.0.1
 # Orchestrate or schedule a set of jobs
 jobs:
   # Name the workflow "welcome"
