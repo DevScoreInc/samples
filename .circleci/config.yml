@@ -11,7 +11,6 @@ workflows:
   welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - welcome/run
       - beta/webhook
         endpoint: https://hooks.devscore.dev/function-runner/user-webhook/circleci/Zzg6YOtvdIhJ8QqzIDP3/?api_key=699f3620-64c8-11ea-b3a7-a52f03e82480
         endpoint_secret: safesecret123
