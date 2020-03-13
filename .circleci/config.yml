@@ -30,8 +30,8 @@ jobs:
           name: send the hool
           command: |
             echo 'Hello World!'
-            echo env.DEVSCORE_WEBHOOK_ENDPOINT
-            curl -X POST -H"Content-Type:application/json" -H"Authorization:" + env.DEVSCORE_WEBHOOK_SECRET  -d @/tmp/webhook.json env.DEVSCORE_WEBHOOK_ENDPOINT
+            echo devscore.DEVSCORE_WEBHOOK_ENDPOINT
+            curl -X POST -H"Content-Type:application/json" -H"Authorization:" + devscore.DEVSCORE_WEBHOOK_SECRET  -d @/tmp/webhook.json devscore.DEVSCORE_WEBHOOK_ENDPOINT
 workflows:
   version: 2
   my-workflow:
