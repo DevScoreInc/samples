@@ -18,6 +18,6 @@ workflows:
   my-workflow:
     jobs:
       - mybuild:
-        context: devscore
+          context: devscore
 
 
