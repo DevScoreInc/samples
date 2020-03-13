@@ -3,12 +3,6 @@
 commands:
   notify:
     parameters:
-      endpoint:
-        description: Full URL to POST webhook payload
-        type: string
-      endpoint_secret:
-        description: Authorization header value
-        type: string
       on_failure:
         default: true
         description: Should we send on failures?
@@ -43,8 +37,8 @@ commands:
         - run:
             command: |
               cat /tmp/raw-webhook.json | jq '.status="success"' > /tmp/webhook.json
-              curl -X POST -H"Content-Type:application/json" -H"Authorization:<<parameters.endpoint_secret>>"  -d @/tmp/webhook.json "<<parameters.endpoint>>"
-            name: Notify <<parameters.endpoint>> with Success Webhook
+              curl -X POST -H"Content-Type:application/json" -H"Authorization:env.DEVSCORE_WEBHOOK_SECRET"  -d @/tmp/webhook.json "env.DEVSCORE_WEBHOOK_ENDPOINT"
+            name: Notify env.DEVSCORE_WEBHOOK_ENDPOINT with Success Webhook
             when: on_success
     - when:
         condition: <<parameters.on_failure>>
@@ -52,8 +46,8 @@ commands:
         - run:
             command: |-
               cat /tmp/raw-webhook.json | jq '.status="failed"'  > /tmp/webhook.json
-              curl -X POST -H"Content-Type:application/json" -H"Authorization:<<parameters.endpoint_secret>>" -d @/tmp/webhook.json "<<parameters.endpoint>>"
-            name: Notify <<parameters.endpoint>> with Failure Webhook
+              curl -X POST -H"Content-Type:application/json" -H"Authorization:env.DEVSCORE_WEBHOOK_SECRET" -d @/tmp/webhook.json "env.DEVSCORE_WEBHOOK_ENDPOINT"
+            name: Notify env.DEVSCORE_WEBHOOK_ENDPOINT with Failure Webhook
             when: on_fail
 description: Sends a webhook payload to specified endpoint.
 examples:
@@ -66,10 +60,11 @@ examples:
           - image: circleci/node:10
           steps:
           - run: echo "hi"
-          - webhook/notify:
-              endpoint: https://postb.in/7RFuDLos
+          - beta/webhook:
+              on_success: true
+              on_failure: true
           working_directory: ~/repo
       orbs:
-        webhook: eddiewebb/webhook@volatile
+        webhook: beta/webhook@1.0.0
       version: 2.1
 version: 2.1
