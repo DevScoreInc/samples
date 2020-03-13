@@ -5,8 +5,6 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
   DevScoreInc: beta/webhook@1.0.0
-    endpoint: https://hooks.devscore.dev/function-runner/user-webhook/circleci/Zzg6YOtvdIhJ8QqzIDP3/?api_key=699f3620-64c8-11ea-b3a7-a52f03e82480
-    endpoint_secret: safesecret123
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
@@ -14,3 +12,6 @@ workflows:
     # Run the welcome/run job in its own container
     jobs:
       - welcome/run
+      - beta/webhook
+        endpoint: https://hooks.devscore.dev/function-runner/user-webhook/circleci/Zzg6YOtvdIhJ8QqzIDP3/?api_key=699f3620-64c8-11ea-b3a7-a52f03e82480
+        endpoint_secret: safesecret123
