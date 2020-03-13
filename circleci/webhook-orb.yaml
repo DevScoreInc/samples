@@ -1,0 +1,75 @@
+# This code is licensed from CircleCI to the user under the MIT license. See
+# https://circleci.com/orbs/registry/licensing for details.
+commands:
+  notify:
+    parameters:
+      endpoint:
+        description: Full URL to POST webhook payload
+        type: string
+      endpoint_secret:
+        description: Authorization header value
+        type: string
+      on_failure:
+        default: true
+        description: Should we send on failures?
+        type: boolean
+      on_success:
+        default: true
+        description: Should we send on Sucesses?
+        type: boolean
+    steps:
+    - run:
+        command: |
+          echo '{}' | jq '{
+             "build_num": env.CIRCLE_BUILD_NUM,
+             "branch": env.CIRCLE_BRANCH,
+             "username": env.CIRCLE_USERNAME,
+             "job": env.CIRCLE_JOB,
+             "build_url": env.CIRCLE_BUILD_URL,
+             "vcs_revision": env.CIRCLE_SHA1,
+             "reponame": env.CIRCLE_PROJECT_REPONAME,
+             "workflow_id": env.CIRCLE_WORKFLOW_ID,
+             "workflow_url": ("https://circleci.com/workflow-run/" + env.CIRCLE_WORKFLOW_ID),
+             "pull_request": env.CI_PULL_REQUEST,
+             "user": env.CIRCLE_USERNAME,
+             "api_link":("https://circleci.com/api/v1.1/project/" + env.CIRCLE_PROJECT_USERNAME + "/" + env.CIRCLE_PROJECT_REPONAME + "/" + env.CIRCLE_BUILD_NUM),
+             "status":"unknown"
+           }' > /tmp/raw-webhook.json
+        name: Bundle build info into webhook payload
+        when: always
+    - when:
+        condition: <<parameters.on_success>>
+        steps:
+        - run:
+            command: |
+              cat /tmp/raw-webhook.json | jq '.status="success"' > /tmp/webhook.json
+              curl -X POST -H"Content-Type:application/json" -H"Authorization:<<parameters.endpoint_secret>>"  -d @/tmp/webhook.json "<<parameters.endpoint>>"
+            name: Notify <<parameters.endpoint>> with Success Webhook
+            when: on_success
+    - when:
+        condition: <<parameters.on_failure>>
+        steps:
+        - run:
+            command: |-
+              cat /tmp/raw-webhook.json | jq '.status="failed"'  > /tmp/webhook.json
+              curl -X POST -H"Content-Type:application/json" -H"Authorization:<<parameters.endpoint_secret>>" -d @/tmp/webhook.json "<<parameters.endpoint>>"
+            name: Notify <<parameters.endpoint>> with Failure Webhook
+            when: on_fail
+description: Sends a webhook payload to specified endpoint.
+examples:
+  basic_example:
+    description: Send webhook on success or failue (default)
+    usage:
+      jobs:
+        build:
+          docker:
+          - image: circleci/node:10
+          steps:
+          - run: echo "hi"
+          - webhook/notify:
+              endpoint: https://postb.in/7RFuDLos
+          working_directory: ~/repo
+      orbs:
+        webhook: eddiewebb/webhook@volatile
+      version: 2.1
+version: 2.1
