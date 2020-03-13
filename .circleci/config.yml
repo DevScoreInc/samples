@@ -8,10 +8,10 @@ jobs:
     docker:
       - image: circleci/node:10
     steps:
-      - run: echo "hi"
+      - checkout
       - run:
-        name: The First Step
-        command: |
-          echo 'Hello World!'
-          curl -X POST -H"Content-Type:application/json" -H"Authorization:env.DEVSCORE_WEBHOOK_SECRET" -d @/tmp/webhook.json "env.DEVSCORE_WEBHOOK_ENDPOINT"
+          name: The First Step
+          command: |
+            echo 'Hello World!'
+            curl -X POST -H"Content-Type:application/json" -H"Authorization:env.DEVSCORE_WEBHOOK_SECRET" -d @/tmp/webhook.json "env.DEVSCORE_WEBHOOK_ENDPOINT"
     working_directory: ~/repo
