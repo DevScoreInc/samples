@@ -2,15 +2,17 @@
 version: 2.1
 # Use a package of configuration called an orb.
 orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.4.1
+  # Declare a dependency on the beta/webhook
   DevScoreInc: beta/webhook@1.0.0
 # Orchestrate or schedule a set of jobs
-workflows:
+jobs:
   # Name the workflow "welcome"
-  welcome:
-    # Run the welcome/run job in its own container
-    jobs:
-      - beta/webhook:
+  build:
+    docker:
+    - image: circleci/node:10
+    steps:
+    - run: echo "hi"
+    - beta/webhook:
         endpoint: https://hooks.devscore.dev/function-runner/user-webhook/circleci/Zzg6YOtvdIhJ8QqzIDP3/?api_key=699f3620-64c8-11ea-b3a7-a52f03e82480
         endpoint_secret: safesecret123
+    working_directory: ~/repo
