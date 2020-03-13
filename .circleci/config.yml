@@ -2,19 +2,19 @@
 version: 2.1
 # Use a package of configuration called an orb.
 # Orchestrate or schedule a set of jobs
+jobs:
+  build:
+    context: devscore
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: The First Step
+          command: |
+            echo 'Hello World!'
+            curl -X POST -H"Content-Type:application/json" -H"Authorization:env.DEVSCORE_WEBHOOK_SECRET" -d @/tmp/webhook.json "env.DEVSCORE_WEBHOOK_ENDPOINT"
+    working_directory: ~/repo
 workflows:
-  version: 2.1
+  version: 2
   my-workflow:
-    jobs:
-      build:
-        context: devscore
-        docker:
-          - image: circleci/node:10
-        steps:
-          - checkout
-          - run:
-              name: The First Step
-              command: |
-                echo 'Hello World!'
-                curl -X POST -H"Content-Type:application/json" -H"Authorization:env.DEVSCORE_WEBHOOK_SECRET" -d @/tmp/webhook.json "env.DEVSCORE_WEBHOOK_ENDPOINT"
-        working_directory: ~/repo
