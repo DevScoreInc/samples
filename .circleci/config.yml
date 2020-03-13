@@ -4,7 +4,6 @@ version: 2.1
 # Orchestrate or schedule a set of jobs
 jobs:
   build:
-    context: devscore
     docker:
       - image: circleci/node:10
     steps:
@@ -19,4 +18,6 @@ workflows:
   version: 2
   my-workflow:
     jobs:
-      - build
+      - build:
+        context: devscore
+
