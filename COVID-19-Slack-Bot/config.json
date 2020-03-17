@@ -1,0 +1,20 @@
+{
+    "function": {
+      "name": "COVID-19-Slack-Bot",
+      "author": "Khash Nejad",
+      "version": "1.0.0",
+      "runtime": "nodejs",
+      "required_parameters": [
+          {
+              "id": "#YOUR_SLACK_BOT_TOKEN#",
+              "name": "slack_bot_token",
+              "default_value": "",
+              "instruction_link": "https://api.slack.com/bot-users#bots-overview"
+          }
+  
+      ],
+      "required_connections": [],
+      "optional_parameters": []
+    }
+}
+
