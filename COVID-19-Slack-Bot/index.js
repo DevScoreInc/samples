@@ -123,9 +123,6 @@ async function main() {
         return data;
     }
 
-    let analyseData = (data) => {
-
-    }
     const botToken = '#YOUR_SLACK_BOT_TOKEN#'; // Slack 'Bot User OAuth Access Token' that you can find in Slack app page under Settings->Install App menu
     const text = getTextFromSlackEventApi(_context.eventContext);
     const userAndChannel = getChannelAndUserFromSlackEventApi(_context.eventContext);
