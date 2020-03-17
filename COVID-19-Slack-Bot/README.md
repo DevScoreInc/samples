@@ -15,7 +15,10 @@ To use this bot you need to create a Slack bot https://api.slack.com/bot-users#b
 
 Then, Enable Slack Event API and get Your 'Signing Secret' from Slack app page (Basic information menu option)
 Then Create POST Webhook in DevScore (use HMAC-256 with 'X-Slack-Signature' header and 'Signing Secret' as value) 
-Here is details of Slack Request signing -- https://api.slack.com/docs/verifying-requests-from-slack
+
+P.S
+
+Slack Request signing -- https://api.slack.com/docs/verifying-requests-from-slack
 
 
 
