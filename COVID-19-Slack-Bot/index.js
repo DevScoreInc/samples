@@ -123,13 +123,43 @@ async function main() {
         return data;
     }
 
+    let getCOVID19Symptoms = () => {
+        // https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html
+        const ret = [`
+            The following symptoms may appear 2-14 days after exposure:
+            Fever
+            Cough
+            Shortness of breath
+        `, 
+        `If you develop emergency warning signs for COVID-19 get medical attention immediately. Emergency warning signs include:
+            Difficulty breathing or shortness of breath
+            Persistent pain or pressure in the chest
+            New confusion or inability to arouse
+            Bluish lips or face`];
+        return ret;
+    }
+
+    let compileTheResponse = async (text) => {
+        const STATS_SLACK_COMMANDS = 'stats'; 
+        const SYMPTOMS_SLACK_COMMANDS = 'symptoms';
+        const userAndChannel = getChannelAndUserFromSlackEventApi(_context.eventContext);
+        if (text.includes(STATS_SLACK_COMMANDS)) {
+            const COVID19Data = await fetchCovid19Data();
+            const response = `Hello <@${userAndChannel.user}>! The latest COVID-19 stats are: ${COVID19Data.confirmed} confirmed, ${COVID19Data.recovered} recovered, ${COVID19Data.deaths} deaths.`;
+            return response;
+        }
+        if (text.includes(SYMPTOMS_SLACK_COMMANDS)) {
+            let symptoms = getCOVID19Symptoms();
+            return symptoms.join(',');
+        }
+        return `Hello <@${userAndChannel.user}>! You can use <stats>, or <symptoms> to get started`;
+    }
+
     const botToken = '#YOUR_SLACK_BOT_TOKEN#'; // Slack 'Bot User OAuth Access Token' that you can find in Slack app page under Settings->Install App menu
     const text = getTextFromSlackEventApi(_context.eventContext);
+    const response = await compileTheResponse(text);
     const userAndChannel = getChannelAndUserFromSlackEventApi(_context.eventContext);
-    
-    const COVID19Data = await fetchCovid19Data();
-    const constomText = `Hello <@${userAndChannel.user}>! The latest COVID-19 is ${COVID19Data.confirmed} confirmed, ${COVID19Data.recovered} recovered, ${COVID19Data.deaths} deaths.`;
-    const result = await postToSlackWithWebAPI(botToken, userAndChannel.channel, constomText);
+    const result = await postToSlackWithWebAPI(botToken, userAndChannel.channel, response);
     return true;
 }
 main();
