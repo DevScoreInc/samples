@@ -14,7 +14,7 @@ Covid-19 slack bot is a simple bot with two commands:
 To use this bot you need to create a Slack bot https://api.slack.com/bot-users#bots-overview (add app_mention and im_read, im_write permission)
 
 Then, Enable Slack Event API and get Your 'Signing Secret' from Slack app page (Basic information menu option)
-Then Create POST Webhook in DevScore (use HMAC-256 with 'X-Slack-Signature' header and Signing secret as value) 
+Then Create POST Webhook in DevScore (use HMAC-256 with 'X-Slack-Signature' header and 'Signing Secret' as value) 
 Here is details of Slack Request signing -- https://api.slack.com/docs/verifying-requests-from-slack
 
 
