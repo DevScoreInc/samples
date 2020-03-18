@@ -56,13 +56,11 @@ async function main() {
         let res = await _context.requestAgent.post(data);
         return res;
     }
-
-    //https://developers.google.com/sheets/api/samples/sheet
-
+    
     let refreshToken = await get_google_refresh_token();
     let token = await refresh_google_token(refreshToken); 
     const sheetId = "#SHEET_ID#";
-    const range = `${sheetId}!A:E`;
+    const range = `${sheetId}!A:E`; // https://developers.google.com/sheets/api/guides/concepts#a1_notation
     const spreadsheetId = "#SPREAD_SHEET_ID#"; 
     const sample_values = [
         ['PAPA', '1/1/2001', 'Website'],
