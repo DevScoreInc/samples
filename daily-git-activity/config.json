@@ -1,7 +1,7 @@
 {
     "function": {
       "name": "daily_git_activity",
-      "author": "khash Nejad",
+      "author": "Khash Nejad",
       "version": "1.0.0",
       "runtime": "nodejs",
       "required_parameters": [

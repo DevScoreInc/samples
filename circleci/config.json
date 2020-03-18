@@ -1,7 +1,7 @@
 {
     "function": {
       "name": "CircleCI integration",
-      "author": "khash Nejad",
+      "author": "Khash Nejad",
       "version": "1.0.0",
       "runtime": "nodejs",
       "required_parameters": [
