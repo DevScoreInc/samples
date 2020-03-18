@@ -25,7 +25,7 @@ async function main() {
         return null;
     }
 
-    let get_user_calendars = async () => {
+    let get_user_calendars = async (token) => {
         const base_uri = "https://www.googleapis.com/calendar/v3";
         const endpoint = "/users/me/calendarList";
         let data = {
