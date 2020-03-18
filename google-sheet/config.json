@@ -8,13 +8,13 @@
         {
             "id": "#SPREAD_SHEET_ID#",
             "name": "spreadSheetId",
-            "default_value": "primary",
+            "default_value": "",
             "instruction_link": "https://developers.google.com/sheets/api/guides/concepts#spreadsheet_id"
         }, 
         {
             "id": "#SHEET_ID#",
             "name": "sheetId",
-            "default_value": "primary",
+            "default_value": "",
             "instruction_link": "https://developers.google.com/sheets/api/guides/concepts#sheet_id"
         }
     ],
