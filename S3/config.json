@@ -1,0 +1,19 @@
+{
+  "function": {
+    "name": "AWS_S3",
+    "author": "Khash Nejad",
+    "version": "1.0.0",
+    "runtime": "nodejs",
+    "required_parameters": [
+       
+    ],
+    "required_connections": [
+        {
+            "id": "token-aws",
+            "permissions": ["s3:ListBucket"],
+            "instruction_link": "https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-buckets"
+        }
+    ],
+    "optional_parameters": []
+  }
+}
