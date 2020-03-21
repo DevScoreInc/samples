@@ -5,14 +5,19 @@
       "version": "1.0.0",
       "runtime": "nodejs",
       "required_parameters": [
-         
+            {
+                "id": "#YOUR_SLACK_CHANNEL_WEBHOOK_URL#",
+                "name": "slack_webhook_url",
+                "default_value": "",
+                "instruction_link": "https://api.slack.com/messaging/webhooks"
+            }
       ],
       "required_connections": [
-          {
-              "id": "'oauth-github'",
-              "permissions": ["repo"],
-              "instruction_link": "https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes"
-          }
+            {
+                "id": "'oauth-github'",
+                "permissions": ["repo"],
+                "instruction_link": "https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes"
+            }
       ],
       "optional_parameters": []
     }

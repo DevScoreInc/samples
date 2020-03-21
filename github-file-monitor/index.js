@@ -127,9 +127,34 @@ async function main() {
         const action = eventContext.action; // only check when PR is opened
         return (pr && action === "opened") ? true : false;
     }
+
+    const post_slack_using_webhook = async (endpoint, text) => {
+        const options = {
+            "uri": endpoint,
+            "json": {
+                "text": text
+            }
+        };
+        let ret = await _context.requestAgent.post(options);
+        return ret;
+    }
+
+    const sendChangesToSlack = async (blackList, slack_channel_uri) => {
+        if (!blackList || blackList.length === 0) return;
+        for (let i=0; i < blackList.length; i++) {
+            let cur = blackList[i];
+            let text = `${cur.filename} has been changed. ${cur.html_url}`;
+            await post_slack_using_webhook(slack_channel_uri, text);
+        }
+        return;
+    }
     
+    const GENERAL_CHANNEL_WEBHOOK_ENDPOINT = "#YOUR_SLACK_CHANNEL_WEBHOOK_URL#";
     const myFiles = ["README.md"]; // TODO: change this list to your desired list of files such as "directoryName/fileName" 
     const blackList = await startPoint(_context.eventContext, myFiles);
+
+    // Optional : send it to Slack
+    await sendChangesToSlack(blackList, GENERAL_CHANNEL_WEBHOOK_ENDPOINT);
     
     await _context.logger('info', {'blackList': JSON.stringify(blackList)});
     return blackList;

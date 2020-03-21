@@ -11,3 +11,7 @@ Second, after you deploy this function and store in your DevScore workspace, you
 
 add your files that you like to monitor into `const myFiles = ["README.md"];`. And you should be ready to go!
 
+
+For Slack integration: 
+You need to create a Slack app and Activate Incoming Webhooks to use Slack integration. Please follow this (https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack) to create your Slack app.
+
