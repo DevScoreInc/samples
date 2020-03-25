@@ -3,7 +3,7 @@
 [<img src="https://firebasestorage.googleapis.com/v0/b/bkind-a71be.appspot.com/o/images%2Fpublic%2Fdeploy_on_devscore2-high-res.png?alt=media&token=ec117ba5-3915-482e-b011-e25304bb94b4" height="44px" width="180px">](https://app.devscore.dev/functions/editor?gitPath=https://github.com/DevScoreInc/samples&dirPath=github-file-monitor)
 
 
-This Function monitor changes to you files and notify you if someone changes them.
+This Function monitors changes to your files and notifie you if someone changes them. The example uses a slack for notication, but can be easily modified to provide other notifications like email, text, etc. 
 
 To run this function you need to obtain your GitHub oauth token with `repo` permission which you can accomplish in [Connection Hub](https://app.devscore.dev/connection-hub) in your DevScore account. 
 
