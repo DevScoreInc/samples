@@ -5,7 +5,7 @@
 
 This Function monitor changes to you files and notify you if someone changes them.
 
-To run this function you need to obtain your GitHub oauth token with `repo` permission which you can accomplish in [Connection Hub] (https://app.devscore.dev/connection-hub) in your DevScore account. 
+To run this function you need to obtain your GitHub oauth token with `repo` permission which you can accomplish in [Connection Hub!] (https://app.devscore.dev/connection-hub) in your DevScore account. 
 
 Second, after you deploy this function and store in your DevScore workspace, you need to create a POST webhook with `HMAC-SH1` security type, `X-Hub-Signature` http header, and your chosen crypto secret. After deploying the webhook and obtaining the Endpoint URL, visit your repo(s) Settings -> Webhooks in GitHub and add webhook. Paste the DevScore WebHook Endpoint URL, select application/json Content Type, use the same secret that you chose when creating Webhook at DevScore, and then under 'Which events would you like to trigger this webhook?' select Pushes and Pull Requests.
 
