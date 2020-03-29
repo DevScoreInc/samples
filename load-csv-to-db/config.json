@@ -1,0 +1,13 @@
+{
+    "function": {
+        "name": "load-csv-to-db",
+        "author": "Khash Nejad",
+        "version": "1.0.0",
+        "runtime": "nodejs",
+        "required_parameters": [
+        ],
+        "required_connections": [
+        ],
+        "optional_parameters": []
+    }
+}
