@@ -1,6 +1,6 @@
 {
     "function": {
-        "name": "load-csv-to-db",
+        "name": "load-csv-to-db-cve",
         "author": "Khash Nejad",
         "version": "1.0.0",
         "runtime": "nodejs",
