@@ -26,9 +26,9 @@ async function main() {
         }
     }
             
-    let loadCSVFile = async (filePath) => {
+    let loadCSVFile = (filePath) => {
         if (!filePath || typeof filePath != "string") return null;
-        return new Promise(async (resolve, reject) => { 
+        return new Promise((resolve, reject) => { 
             let csv = _context.fileLib.getCSVParserInstance();
             let stream = _context.fileLib.getFileReadStreamInstance(filePath);
             let rows = [];
