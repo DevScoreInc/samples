@@ -1,0 +1,10 @@
+{
+    "storage": {
+        "name": "chatops_first_responder_configs",
+        "author": "Khash Nejad",
+        "version": "1.0.0",
+        "files": [
+            {"name": "2020CVE-Data.csv", "contentType": "text/csv"}
+        ]
+    }
+}
