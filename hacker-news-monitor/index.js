@@ -16,7 +16,7 @@ async function main() {
         const number_of_stories_to_traverse = 30;
         const docs = [];
         let kids = []; 
-        for (let i=0; i < Math.max(ids.length, number_of_stories_to_traverse); i++) {
+        for (let i=0; i < Math.min(ids.length, number_of_stories_to_traverse); i++) {
             let current = ids[i];
             let url = `https://hacker-news.firebaseio.com/v0/item/${current}.json`;
             let result = await asyncFetchURL(url);
@@ -93,20 +93,34 @@ async function main() {
             let current = searchResults[i];
             let url = current.url;
             let title = current.title;
-            blocks.push({
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": title
-                }
-            });
-            blocks.push({
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": `<${url}> \n :star: \n`
-                }
-            });
+            let text = current.text;
+            let parent = current.parent;
+            if (url && title) {
+                blocks.push({
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": title
+                    }
+                });
+                blocks.push({
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": `<${url}> \n :star: \n`
+                    }
+                });
+            } 
+            if (text && parent) {
+                blocks.push({
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": `comment on ${`https://news.ycombinator.com/item?id=${parent}`} \n ${text} \n`
+                    }
+                });
+            }
+
             blocks.push({
                 "type": "divider"
             });
