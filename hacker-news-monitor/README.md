@@ -6,7 +6,7 @@
 With this example you can monitor for a keyword or phrase and get an alert on your Slack channel. Create a CronJob for this function to continuously monitor Hacker News. 
 
 
-You need to create a Slack app and Activate Incoming Webhooks to use Slack integration. Please follow [these instructions] (https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack) to create your Slack app.
+You need to create a Slack app and Activate Incoming Webhooks to use Slack integration. Please follow [these instructions(https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack) to create your Slack app.
 
 
 
