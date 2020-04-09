@@ -60,15 +60,20 @@ async function main() {
         return results;
     }
 
-    let sendTextToSlack = async (endpoint, blocks) => {
-        const options = {
-            "uri": endpoint,
-            "json": {
-                "blocks": blocks
-            }
-        };
-        let ret = await _context.requestAgent.post(options);
-        return ret;
+    let sendTextToSlack = async (endpoint, blocks, text) => {
+        try {
+            const options = {
+                "uri": endpoint,
+                "json": {
+                    "blocks": blocks,
+                    "text": text
+                }
+            };
+            let ret = await _context.requestAgent.post(options);
+            return ret;
+        } catch(error) {
+            await _context.logger('error', error.toString());
+        }
     }
 
     let sendResultsToSlack = async (slackWebHookEndpoint, searchQuery, searchResults) => {
@@ -125,7 +130,8 @@ async function main() {
                 "type": "divider"
             });
         }
-        await sendTextToSlack(slackWebHookEndpoint, blocks);
+        const text = `${searchResults.length} alerts for ${searchQuery}`;
+        await sendTextToSlack(slackWebHookEndpoint, blocks, text);
         return;
     }
 
