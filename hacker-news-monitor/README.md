@@ -5,6 +5,7 @@
 
 With this example you can monitor for a keyword or phrase on hacker news tops posts, and receive an alert on your Slack channel. Create a [CronJob](https://app.devscore.dev/functions/manage) for this function to continuously monitor Hacker News. 
 
+This [youtube video](https://youtu.be/5nEab7ALc3c) shows you how to deploy it and how to modify it to search for multiple terms and phrases to create different notifcation.
 
 You need to create a Slack app and Activate Incoming Webhooks to use Slack integration. Please follow [these instructions](https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack) to create your Slack app.
 
