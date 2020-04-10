@@ -5,5 +5,7 @@
 
 This Function loads a CSV file from your DevScore's File Storage (https://app.devscore.dev/filestorage) and then parses it and loads it into database.
 
+This [Youtube Video](https://youtu.be/r0h-TdwWILI) shows you how to deploy this function step by step.  
+
 The CVE CSV sample can be found in this directory. You need to upload this file to your File Storage on DevScore to run the example. 
 CVE is an industry standard for ["Common Vulnerabilities and Exposures".](https://cve.mitre.org/)
