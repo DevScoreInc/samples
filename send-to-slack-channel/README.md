@@ -7,6 +7,7 @@ This function is usuful when you want to create a flow such as your first functi
 
 In this case, when your Function1 finishes it's execution successfully, then it invokes send-to-slack-channel function to post it's return value to your slack channel.
 
+This [Youtube Video](https://youtu.be/pon8ywx0xJk) shows you how to deply this and use function connectors step by step. 
 
 For Slack integration: 
 You need to create a Slack app and Activate Incoming Webhooks to use Slack integration. Please follow this (https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack) to create your Slack app.
