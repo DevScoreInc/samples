@@ -5,7 +5,7 @@
 
 This [Youtube Video](https://youtu.be/6HgxIkT8EQ4) shows you how to deploy this function step by step. 
 
-This Function monitors changes to your files in a github repo and notifies you when someone changes them. The example uses a slack for notication, but can be easily modified to provide other notifications like email, text, etc. You can further customize the example to take actions and automatically publish diffs as well. 
+This Function monitors changes to your files in a github repo and notifies you when someone changes them. The example uses a slack channel for notication, but can be easily modified to provide other notifications like email, text, etc. You can further customize the example to take actions and automatically publish diffs as well. 
 
 To run this function you need to obtain your GitHub oauth token with `repo` permission which you can accomplish in [Connection Hub](https://app.devscore.dev/connection-hub) in your DevScore account. 
 
