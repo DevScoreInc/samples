@@ -3,7 +3,7 @@
 
 [<img src="https://firebasestorage.googleapis.com/v0/b/bkind-a71be.appspot.com/o/images%2Fpublic%2Fdeploy_on_devscore2-high-res.png?alt=media&token=ec117ba5-3915-482e-b011-e25304bb94b4" height="44px" width="180px">](https://app.devscore.dev/functions/editor?gitPath=https://github.com/DevScoreInc/samples&dirPath=github-file-monitor)
 
-This [Youtube Video](https://youtu.be/6HgxIkT8EQ4) shows you how to deploy this function step by step. 
+This [Youtube Video](https://youtu.be/6HgxIkT8EQ4) shows you how to deploy this function step by step at [DevScore](https://devscore.com/?res=github-file-monitor)
 
 This Function monitors changes to your files in a github repo and notifies you when someone changes them. The example uses a slack channel for notication, but can be easily modified to provide other notifications like email, text, etc. You can further customize the example to take actions and automatically publish diffs as well. 
 
